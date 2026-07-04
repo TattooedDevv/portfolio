@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tattooeddevv-portfolio
+  labels:
+    app: tattooeddevv-portfolio
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tattooeddevv-portfolio
+  template:
+    metadata:
+      labels:
+        app: tattooeddevv-portfolio
+    spec:
+      containers:
+        - name: portfolio
+          # TODO: Replace this image with your registry path, for example ghcr.io/tattooeddevv/portfolio:latest.
+          image: ghcr.io/your-github/tattooeddevv-portfolio:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi

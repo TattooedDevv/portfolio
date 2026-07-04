@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(95, 157, 247, 0.12), transparent 34rem),
+    radial-gradient(circle at 82% 8%, rgba(214, 168, 79, 0.12), transparent 24rem),
+    #080d18;
+  color: #e7ecf2;
+}
+
+::selection {
+  background: rgba(95, 157, 247, 0.34);
+  color: #ffffff;
+}
+
+.bg-site {
+  background:
+    linear-gradient(180deg, rgba(95, 157, 247, 0.06), transparent 28rem),
+    radial-gradient(circle at 12% 18%, rgba(214, 168, 79, 0.06), transparent 26rem),
+    #080d18;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-10 lg:py-20;
+}
+
+.eyebrow {
+  @apply text-xs font-bold uppercase tracking-[0.2em] text-gold;
+}
+
+.soft-card {
+  @apply rounded-md border border-white/10 bg-white/[0.045] shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur;
+}
+
+.focus-ring {
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue;
+}
